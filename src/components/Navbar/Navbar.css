@@ -8,35 +8,26 @@ header {
 
 .containerInputAndBtn {
   display: flex;
-  justify-content: center;
+  padding: 0px 15px;
   align-items: center;
-  width: 297px;
-  height: 55px;
-  top: 32px;
-  left: 1047px;
+  min-height: 45px;
   border-radius: 16px;
-  overflow: hidden;
   border: 1px solid #f2f2f2;
   box-shadow: 0px 1px 6px 0px #0000001a;
-
-
-}
-
-.textofInput {
-  color: #333;
   font-size: 14px;
-  padding: 0px 10px 0px 5px;
 
 }
 
 .inputText {
-  width: 35%;
-  height: 100%;
-  font-size: 14px;
-  border: none;
   border-left: 1px solid #f2f2f2;
   border-right: 1px solid #f2f2f2;
-  padding: 0px 10px 0px 15px;
+  min-width: 90px;
+  font-size: 14px;
+  padding: 0px 5px;
+}
+
+.inputText1 {
+  min-width: 50px;
 }
 
 input:focus {
@@ -44,16 +35,14 @@ input:focus {
 }
 
 .btnSearch {
-  width: 20%;
-  height: 100%;
-  border: transparent;
-  background-color: transparent;
   align-items: center;
   display: flex;
-  justify-content: center;
   color: #eb5757;
 }
+
+
 .btnSearch:hover {
   color: #00c3ff;
   transition: 0.3s;
 }
+

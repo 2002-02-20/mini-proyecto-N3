@@ -26,7 +26,7 @@ function App() {
     <>
       <Navbar img={Windbnb} />
       <div className="tittle">
-        <h1>Stays in Finland</h1>
+        <h1 className='text-3xl'><strong>Stays in Finland</strong></h1>
         <span className="stays">12+ stays</span>
       </div>
       <ul className="masterContainer ">
