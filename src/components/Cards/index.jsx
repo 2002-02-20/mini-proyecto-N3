@@ -7,6 +7,8 @@ const Cards = ({
   description,
   punctuation,
   descriptionOfRoom,
+  place
+ 
 }) => {
   return (
     <>
@@ -16,12 +18,14 @@ const Cards = ({
           <div className="btnAndDescription">
             <button className="btnSuperHost">{superHost}</button>
             <p className="descriptionRoom">{description}</p>
+            
           </div>
           <div className="starAndPunctuation">
             <span className="material-symbols-outlined star">grade</span>
             <p className="textToStar">{punctuation}</p>
           </div>
         </div>
+        {/* <p>{place}</p> */}
         <p>
           <strong>{descriptionOfRoom}</strong>
         </p>

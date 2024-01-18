@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 
-const Navbar = ({ img }) => {
+const Navbar = ({ img, searchValue, setSearchValue, search }) => {
   const [inputCity, setInputCity] = useState(40);
   const [inputGuests, setInputGuests] = useState(40);
 
@@ -9,12 +9,12 @@ const Navbar = ({ img }) => {
   const inputGuestsRef = useRef(null);
 
   const anchoInputCity = () => {
-    setInputCity(800);
+    setInputCity(200);
     setInputGuests(40); // Cerrar el otro input
   };
 
   const anchoInputGuests = () => {
-    setInputGuests(800);
+    setInputGuests(200);
     setInputCity(40); // Cerrar el otro input
   };
 
@@ -45,13 +45,15 @@ const Navbar = ({ img }) => {
         <img
           src={img}
           alt="logo de la página"
-          className="w-28 object-contain"
+          className="w-28 object-contain imgIcon"
         />
         <div className="containerInputAndBtn">
           <input
+            placeholder="City" 
+            value={searchValue}
+            onChange={setSearchValue}
             type="text"
             className="inputText1"
-            placeholder="City"
             style={{ width: `${inputCity}px`, transition: "width 0.5s" }}
             onClick={anchoInputCity}
             ref={inputCityRef}
@@ -66,11 +68,14 @@ const Navbar = ({ img }) => {
             ref={inputGuestsRef}
           />
 
-          <button type="button" className="btnSearch" onClick={() => ""}>
+          <button type="button" className="btnSearch" onClick={search}>
             <span className="material-symbols-outlined">search</span>
           </button>
         </div>
-      </header>
+      </header> 
+
+      
+
     </>
   );
 };
