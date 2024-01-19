@@ -1,0 +1,57 @@
+import React from "react";
+import "./Navbar.css";
+
+export default function Modal({onClickCancel}) {
+  
+  
+    return (
+    <>
+
+
+
+      <div className="containerModalInfo" onClick={(e) => e.stopPropagation()} >
+      <button className="cancel" type="button" onClick={onClickCancel}>
+        <span className="material-symbols-outlined spanCancel">cancel</span>
+      </button>
+        <div className="subContainerModalInfo">
+          <input
+            placeholder="City"
+            /*   value={searchValue}
+          onChange={setSearchValue} */
+            type="text"
+            className="inputTextModal"
+            /*  style={{ width: `${inputCity}px`, transition: "width 0.5s" }}
+          onClick={anchoInputCity}
+          ref={inputCityRef} */
+          />
+
+          <input
+            /* value={searchBeds}
+          onChange={setSearchBeds} */
+            type="number"
+            className="inputTextModal"
+            placeholder="Add guests"
+            /*   style={{ width: `${inputGuests}px`, transition: "width 0.5s" }}
+          onClick={anchoInputGuests}
+          ref={inputGuestsRef} */
+          />
+          
+          <div className="divBtnModal">
+            <button
+              type="button"
+              className="btnSearchModal"
+              /*  onClick={() => {
+            search();
+            searchGuests();
+          }} */
+            >
+              <span className="material-symbols-outlined">search</span>
+              Search
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </>
+  );
+}

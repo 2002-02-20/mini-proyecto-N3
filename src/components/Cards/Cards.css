@@ -1,45 +1,46 @@
 .imgHotel {
-    width: 395px;
-    height: 269px;
-    top: 209px;
-    left: 94px;
-    border-radius: 24px;
-  }
-  .starIcon {
-    color: #eb5757;
-  }
-  .btnSuperHost {
-    background-color: transparent;
-    border-radius: 12px;
-    border: 1px solid #4f4f4f;
-    width: 100px;
-    height: 28px;
-    flex-shrink: 0;
-    margin: 10px 15px 10px 0px;
-    color: #4f4f4f;
-    
-  }
-  .btnAndDescription {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 0px 5px 0px;
-  }
-  .infoOfHotelsContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .starAndPunctuation {
-    display: flex;
-    align-items: center;
-  }
-  .star {
-    color: #eb5757;
-  }
-  
-  .descriptionRoom {
-    color: Gray;
-  }
-  
+  width: 395px;
+  height: 269px;
+  top: 209px;
+  left: 94px;
+  border-radius: 24px;
+}
+.starIcon {
+  color: #eb5757;
+}
+.btnSuperHost {
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid #4f4f4f;
+  width: 100px;
+  height: 28px;
+  flex-shrink: 0;
+  margin: 10px 15px 10px 0px;
+  color: #4f4f4f;
+}
+.btnAndDescription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.infoOfHotelsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.starAndPunctuation {
+  display: flex;
+  align-items: center;
+}
+.star {
+  color: #eb5757;
+}
+
+.descriptionRoom {
+  color: Gray;
+  padding-right: 20px;
+}
+.descriptionBed {
+  color: Gray;
+}

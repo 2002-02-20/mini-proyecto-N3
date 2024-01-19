@@ -1,7 +1,22 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
+import Modal from "./Modal";
 
-const Navbar = ({ img, searchValue, setSearchValue, search }) => {
+const Navbar = ({
+  img,
+
+  searchValue,
+  setSearchValue,
+  search,
+
+  searchBeds,
+  setSearchBeds,
+  searchGuests,
+
+  isSearchVisible,
+setIsSearchVisible
+  
+}) => {
   const [inputCity, setInputCity] = useState(40);
   const [inputGuests, setInputGuests] = useState(40);
 
@@ -39,43 +54,45 @@ const Navbar = ({ img, searchValue, setSearchValue, search }) => {
     };
   }, []);
 
+
+
+  const clickCancel = () => {
+    if (isSearchVisible) {
+      setIsSearchVisible(false);
+    }
+  };
+
   return (
     <>
-      <header>
+      <nav onClick={clickCancel}>
         <img
           src={img}
           alt="logo de la página"
           className="w-28 object-contain imgIcon"
         />
-        <div className="containerInputAndBtn">
-          <input
-            placeholder="City" 
-            value={searchValue}
-            onChange={setSearchValue}
-            type="text"
-            className="inputText1"
-            style={{ width: `${inputCity}px`, transition: "width 0.5s" }}
-            onClick={anchoInputCity}
-            ref={inputCityRef}
-          />
+        {/* MODAL */}
+        <button type="containerInputAndBtn" onClick={() => setIsSearchVisible(!isSearchVisible)}>
+          <div className="containerInputAndBtn">
+            <span className="inputText1">Helsinki, Finland</span>
+            <span className="inputText">Add guests</span>
+            <span className="btnSearch">
+              <span className="material-symbols-outlined">search</span>
+            </span>
+          </div>
+        </button>
 
-          <input
-            type="text"
-            className="inputText"
-            placeholder="Add guests"
-            style={{ width: `${inputGuests}px`, transition: "width 0.5s" }}
-            onClick={anchoInputGuests}
-            ref={inputGuestsRef}
-          />
+        {/* MODAL */}
 
-          <button type="button" className="btnSearch" onClick={search}>
-            <span className="material-symbols-outlined">search</span>
-          </button>
-        </div>
-      </header> 
+        
 
-      
+      </nav>
+     
 
+{isSearchVisible && (
+      <Modal
+      onClickCancel={clickCancel}
+      />
+      )}
     </>
   );
 };
