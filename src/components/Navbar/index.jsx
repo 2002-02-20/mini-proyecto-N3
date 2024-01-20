@@ -9,15 +9,13 @@ const Navbar = ({
   setSearchValue,
   search,
 
-  searchBeds,
-  setSearchBeds,
   searchGuests,
+  setsearchGuests,
 
   isSearchVisible,
-setIsSearchVisible
-  
+  setIsSearchVisible,
 }) => {
-  const [inputCity, setInputCity] = useState(40);
+  /*  const [inputCity, setInputCity] = useState(40);
   const [inputGuests, setInputGuests] = useState(40);
 
   const inputCityRef = useRef(null);
@@ -52,9 +50,7 @@ setIsSearchVisible
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
-
-
+  }, []); */
 
   const clickCancel = () => {
     if (isSearchVisible) {
@@ -71,7 +67,11 @@ setIsSearchVisible
           className="w-28 object-contain imgIcon"
         />
         {/* MODAL */}
-        <button type="containerInputAndBtn" onClick={() => setIsSearchVisible(!isSearchVisible)}>
+        <button
+        className=" transform hover:scale-110 transition duration-300 ease-in-out"
+          type="button"
+          onClick={() => setIsSearchVisible(!isSearchVisible)}
+        >
           <div className="containerInputAndBtn">
             <span className="inputText1">Helsinki, Finland</span>
             <span className="inputText">Add guests</span>
@@ -80,18 +80,20 @@ setIsSearchVisible
             </span>
           </div>
         </button>
-
         {/* MODAL */}
-
-        
-
       </nav>
-     
 
-{isSearchVisible && (
-      <Modal
-      onClickCancel={clickCancel}
-      />
+      {isSearchVisible && (
+        <Modal
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+
+          search={search}
+
+          searchGuests={searchGuests}
+          setsearchGuests={setsearchGuests}
+          onClickCancel={clickCancel}
+        />
       )}
     </>
   );

@@ -96,6 +96,7 @@ input:focus {
   width: 100%;
   top:0px;
   height: 450px;
+  z-index: 1;
   background-color: white;
 }
 
@@ -130,7 +131,7 @@ input:focus {
 
 .btnSearchModal {
   width: 126px;
-  height: 53px;
+  height: 55px;
   top: 97px;
   left: 1084px;
   border-radius: 16px;

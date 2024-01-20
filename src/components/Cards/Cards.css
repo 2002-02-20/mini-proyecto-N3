@@ -1,3 +1,11 @@
+.containerHotels:hover{
+.btnSuperHost {
+  background-color: #eb5757e5;
+  border: none;
+  color: white;
+  transition: 0.4s;
+}
+}
 .imgHotel {
   width: 395px;
   height: 269px;
@@ -8,20 +16,22 @@
 .starIcon {
   color: #eb5757;
 }
+
 .btnSuperHost {
   background-color: transparent;
   border-radius: 12px;
-  border: 1px solid #4f4f4f;
+  border: 1px solid #c9c9c9;
   width: 100px;
   height: 28px;
   flex-shrink: 0;
-  margin: 10px 15px 10px 0px;
-  color: #4f4f4f;
+  color: hwb(0 62% 38%);
+  margin-right: 10px;
 }
 .btnAndDescription {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px 0px;
 }
 .infoOfHotelsContainer {
   display: flex;
