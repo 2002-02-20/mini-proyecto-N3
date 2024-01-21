@@ -144,7 +144,8 @@ input:focus {
 }
 
 .btnSearchModal:hover {
-  background: #f70c0ce5;
+  background-color: #f72f0ce5;
+  transition: 0.4s;
 }
 .divBtnModal {
   margin: 0px 100px;

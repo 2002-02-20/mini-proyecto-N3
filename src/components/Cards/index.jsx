@@ -18,7 +18,10 @@ const Cards = ({
             {superHost && <button className="btnSuperHost">Super Host </button>}
             <p className="descriptionRoom">{description}</p>
 
-            <p className="descriptionBed">{bed} beds </p>
+            <p className="descriptionBed">{bed !== null ? `${bed} beds` : ""}</p>
+
+
+
           </div>
           <div className="starAndPunctuation">
             <svg

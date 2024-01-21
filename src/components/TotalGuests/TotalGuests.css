@@ -1,0 +1,73 @@
+
+.containerAdults {
+  margin: 25px 0px;
+  position: absolute;
+  left: 530px;
+}
+
+.containerChildren {
+  margin: 25px 0px;
+  position: absolute;
+  left: 530px;
+  bottom: 80px;
+}
+
+
+.marcador {
+  display: flex;
+  
+}
+
+.numContador {
+  margin: 0px 10px;
+  border: saddlebrown solid;
+}
+
+.containerAdults > .marcador > button {
+  width: 23px;
+  height: 23px;
+  top: 244px;
+  left: 537px;
+  border-radius: 4px;
+  border: 1px solid #828282;
+  color: #828282;
+}
+
+.containerAdults > .marcador > button:hover {
+ 
+  border: 1px solid white;
+  background-color: #d8d8d8;
+  color: white;
+transition: 0.4s;
+}
+
+.containerAdults > .age {
+  color: #bdbdbd;
+}
+
+.containerChildren > .marcador > button {
+  width: 23px;
+  height: 23px;
+  top: 244px;
+  left: 537px;
+  border-radius: 4px;
+  border: 1px solid #828282;
+  color: #828282;
+}
+
+.containerChildren  > .marcador > button:hover {
+ 
+  border: 1px solid white;
+  background-color: #d8d8d8;
+  color: white;
+transition: 0.4s;
+}
+
+
+.containerChildren > .age {
+  color: #bdbdbd;
+}
+
+.numcontadorAdults{
+  margin: 0px 10px;
+}

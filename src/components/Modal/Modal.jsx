@@ -1,5 +1,6 @@
 import React from "react";
-import "./Navbar.css";
+import TotalGuests from "../TotalGuests";
+import CityList from "../CityList";
 
 export default function Modal({
   onClickCancel,
@@ -9,9 +10,11 @@ export default function Modal({
   setsearchGuests,
   search,
 }) {
+
+
   return (
     <>
-      <div className="containerModalInfo" onClick={(e) => e.stopPropagation()}>
+      <div className="containerModalInfo " onClick={(e) => e.stopPropagation()}>
         <button className="cancel" type="button" onClick={onClickCancel}>
           <span className="material-symbols-outlined spanCancel">cancel</span>
         </button>
@@ -22,9 +25,8 @@ export default function Modal({
             onChange={setSearchValue}
             type="text"
             className="inputTextModal"
-            /*  style={{ width: `${inputCity}px`, transition: "width 0.5s" }}
-          onClick={anchoInputCity}
-          ref={inputCityRef} */
+
+          
           />
 
           <input
@@ -33,11 +35,11 @@ export default function Modal({
             type="number"
             className="inputTextModal"
             placeholder="Add guests"
-            /*   style={{ width: `${inputGuests}px`, transition: "width 0.5s" }}
-          onClick={anchoInputGuests}
-          ref={inputGuestsRef} */
+/*             onClick={() => setIsSearchVisible(!isSearchVisible)}
+ */
           />
-
+          
+          
           <div className="divBtnModal">
             <button
               type="button"
@@ -50,8 +52,16 @@ export default function Modal({
               Search
             </button>
           </div>
+          
         </div>
+        {/* {contadorModal && (
+
+        
+        )} */}
+        <TotalGuests/>
+        <CityList/>
       </div>
+     
     </>
   );
 }

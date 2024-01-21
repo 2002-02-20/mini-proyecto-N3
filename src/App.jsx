@@ -11,6 +11,9 @@ function App() {
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
+  const [guests, setGuests] = useState("");
+
+
   async function getData() {
     const fetchData = await fetch("stays.json");
 
@@ -19,13 +22,10 @@ function App() {
     setFilteredCategories(datajson);
   }
 
-  /* FILTAR POR MEDIO DE GUEST INTENTO */
-
   useEffect(() => {
     getData();
   }, []);
 
-  const [guests, setGuests] = useState("");
 
   const search = () => {
     const data = categorias.filter((categoria) => {
@@ -51,6 +51,7 @@ function App() {
         searchGuests={guests}
         setsearchGuests={(e) => setGuests(e.target.value)}
         img={Windbnb}
+        
         isSearchVisible={isSearchVisible}
         setIsSearchVisible={setIsSearchVisible}
       />
