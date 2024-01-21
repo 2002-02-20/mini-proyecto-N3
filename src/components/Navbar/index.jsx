@@ -14,6 +14,8 @@ const Navbar = ({
 
   isSearchVisible,
   setIsSearchVisible,
+
+
 }) => {
   /*  const [inputCity, setInputCity] = useState(40);
   const [inputGuests, setInputGuests] = useState(40);
@@ -73,8 +75,8 @@ const Navbar = ({
           onClick={() => setIsSearchVisible(!isSearchVisible)}
         >
           <div className="containerInputAndBtn">
-            <span className="inputText1">Helsinki, Finland</span>
-            <span className="inputText">Add guests</span>
+            <input className="inputText1" value={searchValue || 'City'}/>
+            <input className="inputText" value={searchGuests || 'Add Guests'}/>
             <span className="btnSearch">
               <span className="material-symbols-outlined">search</span>
             </span>

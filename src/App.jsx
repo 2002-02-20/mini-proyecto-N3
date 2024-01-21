@@ -3,16 +3,25 @@ import Windbnb from "/logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Cards from "./components/Cards";
+import CityList from "./components/CityList";
+
+export async function getData() {
+  const fetchData = await fetch("stays.json");
+  const datajson = await fetchData.json();
+  const citys = Array.from(new Set(datajson.map((ciudad) => ciudad.city)));
+
+  return citys;
+}
+
 
 function App() {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [categorias, setCategories] = useState([]);
-
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-
   const [guests, setGuests] = useState("");
 
+  const [enlistarCiudad, setEnlistarCiudad] = useState("");
 
   async function getData() {
     const fetchData = await fetch("stays.json");
@@ -20,12 +29,32 @@ function App() {
     const datajson = await fetchData.json();
     setCategories(datajson);
     setFilteredCategories(datajson);
+
+    const citys = Array.from(new Set(datajson.map((ciudad) => ciudad.city)));
+
+    setEnlistarCiudad(citys);
   }
+
+  /*  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/stays.json");
+        const jsonData = await response.json();
+        setData(jsonData);
+        setFilteredCategories(jsonData);
+
+        const citys = Array.from(new Set(jsonData.map((imageData)=>imageData.city)));
+
+        setCitys(citys);
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }; */
 
   useEffect(() => {
     getData();
   }, []);
-
 
   const search = () => {
     const data = categorias.filter((categoria) => {
@@ -36,9 +65,6 @@ function App() {
         guests === "" || categoria.maxGuests >= parseInt(guests);
       return city && guestsFilter;
     });
-
-   
-
     setFilteredCategories(data);
   };
 
@@ -51,9 +77,9 @@ function App() {
         searchGuests={guests}
         setsearchGuests={(e) => setGuests(e.target.value)}
         img={Windbnb}
-        
         isSearchVisible={isSearchVisible}
         setIsSearchVisible={setIsSearchVisible}
+        enlistarCiudad={enlistarCiudad}
       />
 
       <div className="tittle">

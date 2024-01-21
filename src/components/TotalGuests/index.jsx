@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TotalGuests.css";
 
-export default function TotalGuests() {
+export default function TotalGuests({ setTotal }) {
   const [contadorAdults, setcontadorAdults] = useState(0);
   const [contadorChildren, setcontadorChildren] = useState(0);
 
@@ -25,7 +25,9 @@ export default function TotalGuests() {
     setcontadorChildren(contadorChildren + 1);
   };
 
-
+  useEffect(() => {
+    setTotal(contadorAdults + contadorChildren);
+  }, [contadorAdults, contadorChildren, setTotal]);
 
   return (
     <>
@@ -35,9 +37,13 @@ export default function TotalGuests() {
         </p>
         <p className="age">Ages 13 or above</p>
         <div className="marcador">
-          <button type="button" onClick={menorCero}>-</button>
+          <button type="button" onClick={menorCero}>
+            -
+          </button>
           <p className="numcontadorAdults">{contadorAdults}</p>
-          <button type="button" onClick={mayor}>+</button>
+          <button type="button" onClick={mayor}>
+            +
+          </button>
         </div>
       </div>
       <div className="containerChildren">
@@ -46,9 +52,13 @@ export default function TotalGuests() {
         </p>
         <p className="age">Ages 2-12</p>
         <div className="marcador">
-          <button type="button" onClick={menorCeroChildren}>-</button>
+          <button type="button" onClick={menorCeroChildren}>
+            -
+          </button>
           <p className="numcontadorAdults">{contadorChildren}</p>
-          <button type="button" onClick={aumenta}>+</button>
+          <button type="button" onClick={aumenta}>
+            +
+          </button>
         </div>
       </div>
     </>

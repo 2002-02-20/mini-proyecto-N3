@@ -15,7 +15,8 @@ nav {
   border: 1px solid #f2f2f2;
   box-shadow: 5px 5px 15px 5px #0000001a;
   font-size: 14px;
-  color:  #c5c5c5;
+  color:  #808080;
+  width: 210px;
 }
 
 .containerInputAndBtn:hover{
@@ -30,12 +31,15 @@ nav {
   min-width: 90px;
   font-size: 13px;
   padding: 0px 5px;
+  background-color: transparent;
 }
 
 .inputText1 {
   min-width: 50px;
   font-size: 13px;
   padding-right: 12px;
+  background-color: transparent;
+
 }
 
 input:focus {

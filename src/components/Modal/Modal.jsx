@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TotalGuests from "../TotalGuests";
 import CityList from "../CityList";
 
@@ -10,7 +10,24 @@ export default function Modal({
   setsearchGuests,
   search,
 }) {
+  const [showModalCity, setshowModalCity] = useState(false);
+  const [showModalGuests, setshowModalGuests] = useState(false);
+  const [total, setTotal] = useState(0); 
+  const handleOpenModalGuests = () => {
+    setshowModalGuests(true);
+  };
 
+  const handleCloseModalGuests = () => {
+    setshowModalGuests(false);
+  };
+
+  const handleOpenModalCity = () => {
+    setshowModalCity(true);
+  };
+
+  const handleCloseModalCity = () => {
+    setshowModalCity(false);
+  };
 
   return (
     <>
@@ -21,29 +38,32 @@ export default function Modal({
         <div className="subContainerModalInfo">
           <input
             placeholder="City"
-            value={searchValue || ''}
+            value={searchValue || ""}
             onChange={setSearchValue}
             type="text"
-            className="inputTextModal"
-
-          
+            className="inputTextModal transform hover:scale-110 transition duration-300 ease-in-out"
+            onClick={() => {
+              handleOpenModalCity();
+              handleCloseModalGuests();
+            }}
           />
 
           <input
-            value={searchGuests || ''}
+            value={searchGuests || "" }
             onChange={setsearchGuests}
             type="number"
-            className="inputTextModal"
+            className="inputTextModal transform hover:scale-110 transition duration-300 ease-in-out"
             placeholder="Add guests"
-/*             onClick={() => setIsSearchVisible(!isSearchVisible)}
- */
+            onClick={() => {
+              handleCloseModalCity();
+              handleOpenModalGuests();
+            }}
           />
-          
-          
+
           <div className="divBtnModal">
             <button
               type="button"
-              className="btnSearchModal"
+              className="btnSearchModal transform hover:scale-110 transition duration-300 ease-in-out"
               onClick={() => {
                 search();
               }}
@@ -52,16 +72,10 @@ export default function Modal({
               Search
             </button>
           </div>
-          
         </div>
-        {/* {contadorModal && (
-
-        
-        )} */}
-        <TotalGuests/>
-        <CityList/>
+        {showModalGuests && <TotalGuests setTotal={setTotal} />}
+        {showModalCity && <CityList />}
       </div>
-     
     </>
   );
 }
