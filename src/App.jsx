@@ -13,7 +13,6 @@ export async function getData() {
   return citys;
 }
 
-
 function App() {
   const [abrirModal, setabrirModal] = useState(false);
 
@@ -21,7 +20,7 @@ function App() {
   const [filteredCategories, setFilteredCategories] = useState([]);
 
   const [searchValue, setSearchValue] = useState("");
-  
+
   const [guests, setGuests] = useState("");
 
   const [enlistarCiudad, setEnlistarCiudad] = useState("");
@@ -38,32 +37,15 @@ function App() {
     setEnlistarCiudad(citys);
   }
 
-  /*  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/stays.json");
-        const jsonData = await response.json();
-        setData(jsonData);
-        setFilteredCategories(jsonData);
-
-        const citys = Array.from(new Set(jsonData.map((imageData)=>imageData.city)));
-
-        setCitys(citys);
-
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }; */
-
   useEffect(() => {
     getData();
   }, []);
 
   const search = () => {
     const data = categorias.filter((categoria) => {
-      const city = categorias === "" || categoria.city
-        .toLowerCase()
-        .includes(searchValue.toLowerCase());
+      const city =
+        categorias === "" ||
+        categoria.city.toLowerCase().includes(searchValue.toLowerCase());
 
       const guestsFilter =
         guests === "" || categoria.maxGuests >= parseInt(guests);
@@ -77,7 +59,6 @@ function App() {
       <Navbar
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-        
         search={search}
         searchGuests={guests}
         setsearchGuests={(e) => setGuests(e.target.value)}
@@ -118,7 +99,6 @@ function App() {
           - devChallenges.io
         </p>
       </footer>
-     
     </>
   );
 }

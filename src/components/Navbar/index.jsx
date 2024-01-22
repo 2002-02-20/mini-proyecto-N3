@@ -66,11 +66,6 @@ const Navbar = ({
           handleCityClick={handleCityClick}
         />
       )}
-
-{/* <CityList
-      setSearchValue={setSearchValue}
-      
-      /> */}
     </>
   );
 };
