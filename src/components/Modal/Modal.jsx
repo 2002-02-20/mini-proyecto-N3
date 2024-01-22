@@ -13,7 +13,7 @@ export default function Modal({
 }) {
   const [showModalCity, setshowModalCity] = useState(false);
   const [showModalGuests, setshowModalGuests] = useState(false);
-  const [total, setTotal] = useState(0); 
+  const [total, setTotal] = useState(0);
   const handleOpenModalGuests = () => {
     setshowModalGuests(true);
   };
@@ -50,7 +50,7 @@ export default function Modal({
           />
 
           <input
-            value={searchGuests || "" }
+            value={searchGuests || ""}
             onChange={setsearchGuests}
             type="text"
             className="inputTextModal transform hover:scale-110 transition duration-300 ease-in-out"
@@ -76,9 +76,7 @@ export default function Modal({
           </div>
         </div>
         {showModalGuests && <TotalGuests setTotal={setTotal} />}
-        {showModalCity && <CityList  setSearchValue={setSearchValue}/>}
-
-    
+        {showModalCity && <CityList setSearchValue={setSearchValue} />}
       </div>
     </>
   );
