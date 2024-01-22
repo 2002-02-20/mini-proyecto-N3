@@ -15,10 +15,13 @@ export async function getData() {
 
 
 function App() {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [abrirModal, setabrirModal] = useState(false);
+
   const [categorias, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
+
   const [searchValue, setSearchValue] = useState("");
+  
   const [guests, setGuests] = useState("");
 
   const [enlistarCiudad, setEnlistarCiudad] = useState("");
@@ -58,9 +61,10 @@ function App() {
 
   const search = () => {
     const data = categorias.filter((categoria) => {
-      const city = categoria.city
+      const city = categorias === "" || categoria.city
         .toLowerCase()
         .includes(searchValue.toLowerCase());
+
       const guestsFilter =
         guests === "" || categoria.maxGuests >= parseInt(guests);
       return city && guestsFilter;
@@ -72,13 +76,14 @@ function App() {
     <>
       <Navbar
         searchValue={searchValue}
-        setSearchValue={(e) => setSearchValue(e.target.value)}
+        setSearchValue={setSearchValue}
+        
         search={search}
         searchGuests={guests}
         setsearchGuests={(e) => setGuests(e.target.value)}
         img={Windbnb}
-        isSearchVisible={isSearchVisible}
-        setIsSearchVisible={setIsSearchVisible}
+        abrirModal={abrirModal}
+        setabrirModal={setabrirModal}
         enlistarCiudad={enlistarCiudad}
       />
 
@@ -113,6 +118,7 @@ function App() {
           - devChallenges.io
         </p>
       </footer>
+     
     </>
   );
 }

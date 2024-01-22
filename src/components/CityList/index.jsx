@@ -1,14 +1,15 @@
+// CityList.js
 import React, { useEffect, useState } from "react";
 import { getData } from "../../App";
-
 import "./CityList.css";
-export default function CityList() {
+
+export default function CityList({ setSearchValue }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const datajson = await getData(); // Utiliza la función getData
+        const datajson = await getData();
         setData(datajson);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -18,46 +19,22 @@ export default function CityList() {
     fetchData();
   }, []);
 
+  const handleCityClick = (city) => {
+    setSearchValue(city);
+  };
 
   return (
     <>
-     {data.map((city, index) => (
-        <ul
-          className="ulCityList"
-          key={index}
-          onClick={() => {
-            setSearchValue(city); // Asegúrate de que setSearchValue está definido en el componente padre
-          }}
-        >
+      {data.map((city, index) => (
+        <ul className="ulCityList" key={index}>
           <div className="iconLocation">
-            <li className="liCityList">
+            <li className="liCityList" onClick={() => handleCityClick(city)}>
               <span className="material-symbols-outlined">location_on</span>
               {city}
             </li>
           </div>
         </ul>
       ))}
-
-        
-      {/* <ul className="ulCityList">
-        <div className="iconLocation">
-        <span class="material-symbols-outlined">location_on</span>
-        <li className="liCityList">Helsinki, Finland</li>
-        </div>
-        <div className="iconLocation">
-        <span class="material-symbols-outlined">location_on</span>
-        <li className="liCityList">Helsinki, Finland</li>
-        </div>
-        <div className="iconLocation">
-        <span class="material-symbols-outlined">location_on</span>
-        <li className="liCityList">Helsinki, Finland</li>
-        </div>
-        <div className="iconLocation">
-        <span class="material-symbols-outlined">location_on</span>
-        <li className="liCityList">Helsinki, Finland</li>
-        </div>
-
-      </ul> */}
     </>
   );
 }

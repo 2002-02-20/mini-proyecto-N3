@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 import Modal from "../Modal/Modal";
+import CityList from "../CityList";
 
 const Navbar = ({
   img,
@@ -12,52 +13,17 @@ const Navbar = ({
   searchGuests,
   setsearchGuests,
 
-  isSearchVisible,
-  setIsSearchVisible,
-
-
+  abrirModal,
+  setabrirModal,
 }) => {
-  /*  const [inputCity, setInputCity] = useState(40);
-  const [inputGuests, setInputGuests] = useState(40);
-
-  const inputCityRef = useRef(null);
-  const inputGuestsRef = useRef(null);
-
-  const anchoInputCity = () => {
-    setInputCity(200);
-    setInputGuests(40); // Cerrar el otro input
-  };
-
-  const anchoInputGuests = () => {
-    setInputGuests(200);
-    setInputCity(40); // Cerrar el otro input
-  };
-
-  const handleClickOutside = (event) => {
-    if (
-      inputCityRef.current &&
-      !inputCityRef.current.contains(event.target) &&
-      inputGuestsRef.current &&
-      !inputGuestsRef.current.contains(event.target)
-    ) {
-      // Hacer algo al hacer clic fuera de los inputs (restablecer anchos en este caso)
-      setInputCity(40);
-      setInputGuests(40);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []); */
-
   const clickCancel = () => {
-    if (isSearchVisible) {
-      setIsSearchVisible(false);
+    if (abrirModal) {
+      setabrirModal(false);
     }
+  };
+
+  const handleCityClick = (city) => {
+    setSearchValue(city);
   };
 
   return (
@@ -70,13 +36,17 @@ const Navbar = ({
         />
         {/* MODAL */}
         <button
-        className=" transform hover:scale-110 transition duration-300 ease-in-out"
+          className=" transform hover:scale-110 transition duration-300 ease-in-out"
           type="button"
-          onClick={() => setIsSearchVisible(!isSearchVisible)}
+          onClick={() => setabrirModal(!abrirModal)}
         >
           <div className="containerInputAndBtn">
-            <input className="inputText1" value={searchValue || 'City'}/>
-            <input className="inputText" value={searchGuests || 'Add Guests'}/>
+            <input
+              className="inputText1"
+              value={searchValue || "City"}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <input className="inputText" value={searchGuests || "Add Guests"} />
             <span className="btnSearch">
               <span className="material-symbols-outlined">search</span>
             </span>
@@ -85,18 +55,22 @@ const Navbar = ({
         {/* MODAL */}
       </nav>
 
-      {isSearchVisible && (
+      {abrirModal && (
         <Modal
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-
           search={search}
-
           searchGuests={searchGuests}
           setsearchGuests={setsearchGuests}
           onClickCancel={clickCancel}
+          handleCityClick={handleCityClick}
         />
       )}
+
+{/* <CityList
+      setSearchValue={setSearchValue}
+      
+      /> */}
     </>
   );
 };

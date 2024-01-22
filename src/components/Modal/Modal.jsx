@@ -9,6 +9,7 @@ export default function Modal({
   searchGuests,
   setsearchGuests,
   search,
+  handleCityClick,
 }) {
   const [showModalCity, setshowModalCity] = useState(false);
   const [showModalGuests, setshowModalGuests] = useState(false);
@@ -39,7 +40,7 @@ export default function Modal({
           <input
             placeholder="City"
             value={searchValue || ""}
-            onChange={setSearchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
             type="text"
             className="inputTextModal transform hover:scale-110 transition duration-300 ease-in-out"
             onClick={() => {
@@ -51,7 +52,7 @@ export default function Modal({
           <input
             value={searchGuests || "" }
             onChange={setsearchGuests}
-            type="number"
+            type="text"
             className="inputTextModal transform hover:scale-110 transition duration-300 ease-in-out"
             placeholder="Add guests"
             onClick={() => {
@@ -66,6 +67,7 @@ export default function Modal({
               className="btnSearchModal transform hover:scale-110 transition duration-300 ease-in-out"
               onClick={() => {
                 search();
+                onClickCancel();
               }}
             >
               <span className="material-symbols-outlined">search</span>
@@ -74,7 +76,9 @@ export default function Modal({
           </div>
         </div>
         {showModalGuests && <TotalGuests setTotal={setTotal} />}
-        {showModalCity && <CityList />}
+        {showModalCity && <CityList  setSearchValue={setSearchValue}/>}
+
+    
       </div>
     </>
   );

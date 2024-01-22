@@ -5,6 +5,13 @@
 
 }
 
+.liCityList{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  
+}
+
 .iconLocation {
   display: flex;
   align-items: center;

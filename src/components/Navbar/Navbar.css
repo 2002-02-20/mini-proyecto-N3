@@ -28,17 +28,17 @@ nav {
 .inputText {
   border-left: 1px solid #f2f2f2;
   border-right: 1px solid #f2f2f2;
-  min-width: 90px;
+  min-width: 5px;
   font-size: 13px;
-  padding: 0px 5px;
+  padding: 0px 10px;
   background-color: transparent;
 }
 
 .inputText1 {
-  min-width: 50px;
+  min-width: 20px;
   font-size: 13px;
-  padding-right: 12px;
-  background-color: transparent;
+/*   padding-right: 12px;
+ */  background-color: transparent;
 
 }
 
@@ -59,7 +59,7 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
-  header {
+  nav {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,9 +79,6 @@ input:focus {
 
  
   
-
-
-
 }
 
 
